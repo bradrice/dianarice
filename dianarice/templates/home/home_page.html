@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-sm-12">
+                    {{ page.introduction }}
+            </div>
+            {% if page.image %}
+            <div>
+                {% image page.faceplate width-600 as photoLeft %}
+                <img class="img-fluid" src="{{ photoLeft.url }}" width="{{ photoLeft.width }}" height="{{ photoLeft.height }}" alt="{{ photoLeft.alt }}" />
+            </div>
+            {% endif %}
+            {% if page.body %}
+            <div class="content-body">
+                {{ page.body | richtext }}
+            </div>
+                {% endif %}
+            <div class="custom-nav">
+                <!-- <ul class="nav-list">
+                    <li><a href="/sketchbook">Sketchbook</a></li>
+                    <li><a href="/portfolio">Art Gallery</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="col-sm-6">
+                {% if page.image %}
+                <div>
+                    {% image page.image width-600 as photo %}
+                    <img class="img-fluid" src="{{ photo.url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt }}" />
+                </div>
+                {% endif %}
+                
+        </div>
+    </div>
+</div>
+
+{% endblock %}

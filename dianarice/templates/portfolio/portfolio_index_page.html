@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+{% include "../includes/portfolio_header.html" %}
+<div class="main-content">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>{{ page.introduction}}</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container">
+                <div class="row art-list">
+                {% for art in artworks %}
+                    <div class="col-xs-12 col-md-6 artworks-list-item">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 image">
+                                <a href="{% pageurl art %}">
+                                    {% image art.image fill-180x180-c100 as image %}
+                                    <img src="{{ image.url }}" width="{{ image.width }}"
+                                        height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+                                </a>
+                            </div>
+                            <div class="col-xs-6 col-sm-7">
+                                <a href="{% pageurl art %}">
+                                    <h2>{{ art.title }}</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        
+            {% if artworks.paginator.count > 12 %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 mx-auto mt-2" style="width: 200px;">
+                        {% include "includes/pagination.html" with subpages=images %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+</div>
+    
+{% endblock content %}

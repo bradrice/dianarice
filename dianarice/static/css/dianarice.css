@@ -1,0 +1,61 @@
+body {
+    font-family: 'Lekton', 'Lucida Sans', Helvetica, Arial, sans-serif;
+}
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.header {
+    height: 200px;
+    background-color: #FFE59A;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #3C2C18;
+}
+
+.footer {
+    height: 100px;
+    background-color: #FF8F69;
+}
+
+.main-content {
+    flex: 1;
+    align-self: auto;
+    padding: 1em 0;
+}
+
+.nav-container {
+    display: flex;
+    background-color: #FF8F69;
+    flex-direction: column;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 1em;
+    color: #190F02;
+    padding: 6px;
+}
+
+.nav-list {
+    list-style: none;
+    font-size: 1.5em;
+    color: #190F02
+}
+
+.nav-list a {
+    color: #190F02;
+}
+
+.artworks-list-item {
+    padding: 1em;
+}
+
+.content-body {
+    margin-top: 24px;
+    font-size: 24px;
+}

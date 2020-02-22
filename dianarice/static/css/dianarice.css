@@ -2,6 +2,10 @@ body {
     font-family: 'Lekton', 'Lucida Sans', Helvetica, Arial, sans-serif;
 }
 
+.intro {
+    font-size: 4rem;
+}
+
 .page-wrapper {
     display: flex;
     min-height: 100vh;

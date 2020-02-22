@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 intro">
             {{ page.introduction }}
     </div>
     </div>
@@ -19,11 +19,12 @@
             </div>
             {% endif %}
             <div class="custom-nav">
-                <ul class="nav-list">
+                <!-- put nav in the body -->
+                <!-- <ul class="nav-list">
                     <li><a href="/sketchbook">Sketchbook</a></li>
                     <li><a href="/portfolio">Art Gallery</a></li>
                     <li><a href="/about">About</a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
         <div class="col-sm-6">
@@ -34,7 +35,7 @@
                 </div>
                 {% endif %}
                 {% if page.body %}
-                {{ page.body }}
+                {{ page.body | richtext }}
                 {% endif %}
         </div>
     </div>

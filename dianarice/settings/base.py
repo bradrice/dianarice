@@ -163,3 +163,4 @@ WAGTAIL_SITE_NAME = "dianarice"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://dianarice.art'
 
+GTAILIMAGES_IMAGE_MODEL = 'images.CustomImage'

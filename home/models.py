@@ -19,6 +19,7 @@ from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
+from wagtail.images.models import Image, AbstractImage, AbstractRendition
 
 from dianarice.blocks import BaseStreamBlock
 
@@ -116,3 +117,38 @@ class HomePage(Page):
 
     def __str__(self):
         return self.title
+
+
+class CustomImage(AbstractImage):
+    # Add any extra fields to image here
+
+    IMAGE_CATEGORY = (
+        ('PT', 'Painting'),
+        ('LD', 'Life Drawing'),
+        ('SB', 'Sketchbook'),
+        ('SK', 'Sketch'),
+        ('SC', 'Sculpture'),
+        ('NO' 'None'),
+    )
+    # eg. To add a caption field:
+    caption = models.CharField(max_length=255, blank=True),
+    category = models.CharField(
+        max_length=2,
+        choices=IMAGE_CATEGORY,
+        default='None',
+    )
+
+    admin_form_fields = Image.admin_form_fields + (
+        # Then add the field names here to make them appear in the form:
+         'caption',
+         'category'
+    )
+
+class CustomRendition(AbstractRendition):
+    image = models.ForeignKey(CustomImage, on_delete=models.CASCADE, related_name='renditions')
+
+    class Meta:
+        unique_together = (
+            ('image', 'filter_spec', 'focal_point_key'),
+        )
+        

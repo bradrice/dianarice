@@ -154,6 +154,7 @@ STATIC_URL = 'https://static.dianarice.art/'
 MEDIA_ROOT = '/var/www/html/media.dianarice.art/public_html/'
 MEDIA_URL = 'https://media.dianarice.art/'
 
+# WAGTAILIMAGES_IMAGE_MODEL = 'images.CustomImage'
 
 # Wagtail settings
 
